@@ -12,7 +12,6 @@ public class Room {
     private int roomNumber;
 
 
-
     public String getGuestName() {
         return guestName;
     }
@@ -55,10 +54,14 @@ public class Room {
     }
 
     public int getRoomNumber() {
-        return roomNumber;
+        return this.roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
+    public void setRoomNumber(int min, int max) {
+        int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
+        this.roomNumber = random_int;
         this.roomNumber = roomNumber;
     }
 }
+
+
