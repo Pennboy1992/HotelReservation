@@ -1,14 +1,16 @@
 package com.Hotel.Room;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Room {
     private String guestName;
     private int guestNumber;
     private int daysReserved;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
     private int roomNumber;
+
 
 
     public String getGuestName() {
@@ -35,20 +37,21 @@ public class Room {
         this.daysReserved = daysReserved;
     }
 
-    public Date getCheckInDate() {
+    public LocalDate getCheckInDate() {
+
         return checkInDate;
     }
 
-    public void setCheckInDate(Date checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setCheckInDate(String checkInDate) {
+        LocalDate inDate = LocalDate.parse(checkInDate);
+        this.checkInDate = inDate;
     }
 
-    public Date getCheckOutDate() {
+    public LocalDate getCheckOutDate() {
+        LocalDate inDate = getCheckInDate();
+        LocalDate outDate = inDate.plusDays(daysReserved);
+        checkOutDate = outDate;
         return checkOutDate;
-    }
-
-    public void setCheckOutDate(Date checkOutDate) {
-        this.checkOutDate = checkOutDate;
     }
 
     public int getRoomNumber() {
