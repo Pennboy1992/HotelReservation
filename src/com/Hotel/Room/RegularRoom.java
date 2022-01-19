@@ -16,7 +16,7 @@ public class RegularRoom extends Room{
 
     public RegularRoom(String guestName,int guestNumber,int daysReserved, String checkInDate) {
         setGuestName(guestName);
-        setGuestNumber(guestNumber);
+        setGuestNumber(guestNumber, MAX_PEOPLE);
         setDaysReserved(daysReserved);
         setCheckInDate(checkInDate);
         setRoomNumber(FIRST_ROOM_NUMBER,LAST_ROOM_NUMBER);
