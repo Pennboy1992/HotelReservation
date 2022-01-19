@@ -24,8 +24,13 @@ public class Room {
         return guestNumber;
     }
 
-    public void setGuestNumber(int guestNumber) {
-        this.guestNumber = guestNumber;
+    public void setGuestNumber(int guestNumber, int maxGuest) {
+        if(guestNumber > maxGuest){
+            this.guestNumber = 0;
+        }
+        else {
+            this.guestNumber = guestNumber;
+        }
     }
 
     public int getDaysReserved() {
