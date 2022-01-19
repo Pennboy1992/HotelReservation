@@ -67,6 +67,18 @@ public class Room {
         this.roomNumber = random_int;
         this.roomNumber = roomNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "guestName='" + guestName + '\'' +
+                ", guestNumber=" + guestNumber +
+                ", daysReserved=" + daysReserved +
+                ", checkInDate=" + checkInDate +
+                ", checkOutDate=" + getCheckOutDate() +
+                ", roomNumber=" + roomNumber +
+                '}';
+    }
 }
 
 

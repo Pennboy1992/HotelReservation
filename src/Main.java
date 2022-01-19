@@ -1,3 +1,5 @@
+import com.Hotel.Room.RegularRoom;
+
 import java.util.Scanner;
 
 public class Main {
@@ -33,22 +35,41 @@ public class Main {
             options.append("Presidential Suite, ");
             options.append("Snowden Suite");
         }
+        System.out.println("You are eligible for:  " + options);
+//
 
 
-        boolean capacity = guestNumber <= 7;
-        if(capacity)
-        {
-            System.out.println("You are eligible for:  " + options);
-            System.out.println("Which room would you like?(Enter the corresponding number to the room you would like)");
-            System.out.println("1.Regular Room");
-            System.out.println("2.Presidential Suite");
-            System.out.println("3.Snowden Suite");
-            Scanner in3 = new Scanner(System.in);
-            int roomOption = in3.nextInt();
-        }
-        else{
-            System.out.println("We apologize but we have no rooms that can fit this capacity.");
-        }
+//        boolean capacity = guestNumber <= 7;
+//        if(capacity)
+//        {
+//            System.out.println("You are eligible for:  " + options);
+//            System.out.println("Which room would you like?(Enter the corresponding number to the room you would like)");
+//            System.out.println("1.Regular Room");
+//            System.out.println("2.Presidential Suite");
+//            System.out.println("3.Snowden Suite");
+//            Scanner in3 = new Scanner(System.in);
+//            int roomOption = in3.nextInt();
+//        }
+//        else{
+//            System.out.println("We apologize but we have no rooms that can fit this capacity.");
+//        }
+
+         Scanner in4 = new Scanner(System.in);
+        System.out.println("What day will you be joining us?(Please enter date in yyyy-mm-dd format");
+        String checkInDate = in4.nextLine();
+        Scanner in5 = new Scanner(System.in);
+        System.out.println("Now how many days will you be staying with us?");
+        int numOfDays = in5.nextInt();
+
+        RegularRoom regrom = new RegularRoom(guestName,guestNumber,numOfDays,checkInDate);
+        System.out.println(regrom);
+        in.close();
+        in2.close();
+        in4.close();
+        in5.close();
+
+
+
 
 
  /*
