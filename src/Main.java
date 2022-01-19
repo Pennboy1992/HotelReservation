@@ -1,6 +1,8 @@
 import com.Hotel.Room.RegularRoom;
 import com.Hotel.Room.Room;
 import com.Hotel.Room.SnowdenSuite;
+import com.Hotel.Hotel;
+import com.Hotel.HackerSuite;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
@@ -65,7 +67,10 @@ public class Main {
         int numOfDays = in5.nextInt();
 
         Room edward = new SnowdenSuite(guestName,guestNumber,numOfDays,checkInDate);
-        printReceipt(edward);
+//        printReceipt(edward);
+        HackerSuite hacker = new HackerSuite();
+        hacker.makeReservation(edward);
+        hacker.listGuests();
         in.close();
         in2.close();
         in4.close();

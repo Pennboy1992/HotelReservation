@@ -15,10 +15,9 @@ public class Hotel {
     private String hotelName;
     private String address;
 
-    public Hotel(String hotelName, String address) {
-        this.hotelName = hotelName;
-        this.address = address;
-    }
+
+
+
 
     public String getAddress() {
         return address;
@@ -33,25 +32,28 @@ public class Hotel {
         this.hotelName = hotelName;
     }
     public void makeReservation(Room room){
-        if(room.getRoomName()== "Regular Room"){
+        if(room.getRoomName()== "Regular Room" && regularRooms.size() <= 15){
             regularRooms.add((RegularRoom) room);
         }
-        else if(room.getRoomName()== "Presidential Suite"){
+        else if(room.getRoomName()== "Presidential Suite" && presidentialSuites.size() <= 10){
             presidentialSuites.add((PresidentialSuite) room);
         }
-        else if(room.getRoomName()== "Snowden Suite"){
+        else if(room.getRoomName()== "Snowden Suite" && snowdenSuites.size() <= 5){
             snowdenSuites.add((SnowdenSuite) room);
         }
 
     }
     public void listGuests(){
         for(RegularRoom room: regularRooms){
+            System.out.println("Regular Room guests: ");
             System.out.println(room);
         }
         for(PresidentialSuite room: presidentialSuites){
+            System.out.println("Presidential Suite guests: ");
             System.out.println(room);
         }
         for(SnowdenSuite room: snowdenSuites){
+            System.out.println("Snowden Suite guests: ");
             System.out.println(room);
         }
     }
