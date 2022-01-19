@@ -32,4 +32,14 @@ public class PresidentialSuite extends Room{
     public String getRoomName() {
         return this.ROOM_NAME;
     }
+
+    @Override
+    public String toString() {
+        return " Booking Guest: " + getGuestName() +
+                ", Accompanying Guests: " + getGuestNumber() +
+                ", Check In Date: " + getCheckInDate() +
+                ", Check Out Date: " + getCheckOutDate() +
+                ", Room Number: " + getRoomNumber() +
+                ", Stay Cost: " + calculateCost();
+    }
 }
