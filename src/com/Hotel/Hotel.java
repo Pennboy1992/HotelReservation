@@ -12,7 +12,26 @@ public class Hotel {
     private Collection<RegularRoom> regularRooms = new ArrayList<>();
     private Collection<PresidentialSuite> presidentialSuites = new ArrayList<>();
     private Collection<SnowdenSuite> snowdenSuites = new ArrayList<>();
+    private String hotelName;
+    private String address;
 
+    public Hotel(String hotelName, String address) {
+        this.hotelName = hotelName;
+        this.address = address;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public String getHotelName() {
+        return hotelName;
+    }
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
     public void makeReservation(Room room){
         if(room.getRoomName()== "Regular Room"){
             regularRooms.add((RegularRoom) room);
@@ -23,7 +42,20 @@ public class Hotel {
         else if(room.getRoomName()== "Snowden Suite"){
             snowdenSuites.add((SnowdenSuite) room);
         }
+
     }
+    public void listGuests(){
+        for(RegularRoom room: regularRooms){
+            System.out.println(room);
+        }
+        for(PresidentialSuite room: presidentialSuites){
+            System.out.println(room);
+        }
+        for(SnowdenSuite room: snowdenSuites){
+            System.out.println(room);
+        }
+    }
+
 
 
 }
