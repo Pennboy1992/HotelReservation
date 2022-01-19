@@ -7,6 +7,7 @@ public class PresidentialSuite extends Room{
     private final int MAX_PEOPLE = 5;
     private final int FIRST_ROOM_NUMBER = 200;
     private final int LAST_ROOM_NUMBER = 210;
+    private final String ROOM_NAME = "Presidential Suite";
     private String guestName;
     private int guestNumber;
     private int daysReserved;
@@ -26,5 +27,9 @@ public class PresidentialSuite extends Room{
 
     public double calculateCost() {
         return COST_PER_NIGHT * getDaysReserved();
+    }
+
+    public String getRoomName() {
+        return this.ROOM_NAME;
     }
 }
