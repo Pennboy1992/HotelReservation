@@ -3,13 +3,14 @@ package com.Hotel.Room;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Room {
+public abstract class Room {
     private String guestName;
     private int guestNumber;
     private int daysReserved;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private int roomNumber;
+
 
 
     public String getGuestName() {
@@ -67,6 +68,8 @@ public class Room {
         this.roomNumber = random_int;
         this.roomNumber = roomNumber;
     }
+    public abstract String getRoomName();
+    public abstract double calculateCost();
 
     @Override
     public String toString() {

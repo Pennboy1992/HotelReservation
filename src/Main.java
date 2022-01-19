@@ -1,5 +1,8 @@
 import com.Hotel.Room.RegularRoom;
+import com.Hotel.Room.Room;
+import com.Hotel.Room.SnowdenSuite;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 
 public class Main {
@@ -61,8 +64,8 @@ public class Main {
         System.out.println("Now how many days will you be staying with us?");
         int numOfDays = in5.nextInt();
 
-        RegularRoom regrom = new RegularRoom(guestName,guestNumber,numOfDays,checkInDate);
-        System.out.println(regrom);
+        Room edward = new SnowdenSuite(guestName,guestNumber,numOfDays,checkInDate);
+        printReceipt(edward);
         in.close();
         in2.close();
         in4.close();
@@ -116,6 +119,14 @@ public class Main {
         }
 
         */
+    }
+
+    public static void printReceipt(Room rom) {
+        System.out.println("Thank you for making your reservation with us at the Hacker Suite Hotel "+ rom.getGuestName() + ".");
+        System.out.println("You will be staying in one of our " + rom.getRoomName() + "s accompanied by " + (rom.getGuestNumber() - 1) + " guest(s)");
+        System.out.println("Your check in date will be " + rom.getCheckInDate() + " and your checkout date will be " + rom.getCheckOutDate() + ".");
+        String total = String.format("%,.2f",rom.calculateCost());
+        System.out.println("Your total for this reservation will be " + total + " and will be due on: " + rom.getCheckInDate() + ".");
     }
 
 }

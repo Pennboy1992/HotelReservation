@@ -7,12 +7,14 @@ public class RegularRoom extends Room{
     private final int MAX_PEOPLE = 3;
     private final int FIRST_ROOM_NUMBER = 100;
     private final int LAST_ROOM_NUMBER = 115;
+    private final String ROOM_NAME = "Regular Room";
     private String guestName;
     private int guestNumber;
     private int daysReserved;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private int roomNumber;
+
 
 
     public RegularRoom(String guestName,int guestNumber,int daysReserved, String checkInDate) {
@@ -25,6 +27,10 @@ public class RegularRoom extends Room{
 
     public double calculateCost() {
         return COST_PER_NIGHT * getDaysReserved();
+    }
+
+    public String getRoomName() {
+        return this.ROOM_NAME;
     }
 
 
