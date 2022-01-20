@@ -66,15 +66,15 @@ public abstract class Room {
     public void setRoomNumber(int min, int max) {
         int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
         this.roomNumber = random_int;
-        this.roomNumber = roomNumber;
     }
 
     public void printReceipt() {
-        System.out.println("Thank you for making your reservation with us at the Hacker Suite Hotel "+ getGuestName() + ".");
-        System.out.println("You will be staying in one of our " + getRoomName() + "s accompanied by " + (getGuestNumber() - 1) + " guest(s)");
+        System.out.println("Thank you for making your reservation with us at the Hacker Suite Hotel, "+ getGuestName() + ".");
+        System.out.println("You will be staying in one of our " + getRoomName() + "s accompanied by " + (getGuestNumber() - 1) + " guest(s) in room " +
+                getRoomNumber() + ".");
         System.out.println("Your check in date will be " + getCheckInDate() + " and your checkout date will be " + getCheckOutDate() + ".");
         String total = String.format("%,.2f",calculateCost());
-        System.out.println("Your total for this reservation will be " + total + " and will be due on: " + getCheckInDate() + ".\n");
+        System.out.println("Your total for this reservation will be $" + total + " and will be due on: " + getCheckInDate() + ".\n");
     }
     public abstract String getRoomName();
     public abstract double calculateCost();

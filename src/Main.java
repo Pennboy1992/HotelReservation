@@ -84,18 +84,10 @@ public class Main {
                     hacker.makeReservation(new SnowdenSuite(guestName,guestNumber,numOfDays,checkInDate));
                 }
 
-
             }
             else{
                 System.out.println("We apologize but we have no rooms that can fit this capacity.");
             }
-
-
-
-
-
-
-
 
 
         }
