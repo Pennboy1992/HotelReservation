@@ -16,9 +16,6 @@ public class Hotel {
     private String address;
 
 
-
-
-
     public String getAddress() {
         return address;
     }
@@ -34,12 +31,15 @@ public class Hotel {
     public void makeReservation(Room room){
         if(room.getRoomName()== "Regular Room" && regularRooms.size() <= 15){
             regularRooms.add((RegularRoom) room);
+            room.printReceipt();
         }
         else if(room.getRoomName()== "Presidential Suite" && presidentialSuites.size() <= 10){
             presidentialSuites.add((PresidentialSuite) room);
+            room.printReceipt();
         }
         else if(room.getRoomName()== "Snowden Suite" && snowdenSuites.size() <= 5){
             snowdenSuites.add((SnowdenSuite) room);
+            room.printReceipt();
         }
 
     }
