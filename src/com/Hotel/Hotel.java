@@ -38,6 +38,10 @@ public class Hotel {
         StringBuilder options = new StringBuilder();
         System.out.println("May we have your name for this reservation today:  ");
         String guestName = in.nextLine();
+        if(guestName.length() == 0){
+            System.out.println("We cannot make a reservation without a name, please come back with a valid one. \n");
+            adminPortal();
+        }
 
         System.out.println("Thank you, " + nameFormatter(guestName) + "!");
 
@@ -123,6 +127,10 @@ public class Hotel {
         List<Room> rooms = hotelRooms.stream()
                 .filter(room -> room.getReservationNumber() == reservationNumber)
                 .collect(Collectors.toList());
+        if(rooms.size() == 0){
+            System.out.println("There are no current reservations for that number. \n" );
+            adminPortal();
+        }
         System.out.println(rooms.get(0) + "\n");
         return rooms.get(0);
     }
@@ -141,7 +149,7 @@ public class Hotel {
             System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.calculateCost())+"\n");
         }
         else{
-            System.out.println("We didn't find a reservation for the number provided.");
+            System.out.println("We didn't find a reservation for the number provided. \n");
         }
         hotelRooms.removeIf(room -> room.getReservationNumber() == numToCancel);
     }
