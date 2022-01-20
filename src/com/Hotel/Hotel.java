@@ -15,6 +15,11 @@ public class Hotel {
     private String hotelName;
     private String address;
 
+    public Hotel(String hotelName,String address) {
+        setHotelName(hotelName);
+        setAddress(address);
+    }
+
 
     public String getAddress() {
         return address;
