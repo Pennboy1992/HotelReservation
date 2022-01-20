@@ -127,8 +127,27 @@ public class Hotel {
         return rooms.get(0);
     }
     public void cancelReservation(){
-        int numToCancel = findReservation().getReservationNumber();
+//        int numToCancel = findReservation().getReservationNumber();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the reservation number for the reservation you'd like to cancel: ");
+        int numToCancel = in.nextInt();
+
+        List<Room> rooms = hotelRooms.stream()
+                .filter(room -> room.getReservationNumber() == numToCancel)
+                .collect(Collectors.toList());
+        if(rooms.size() > 0){
+            Room room = rooms.get(0);
+            System.out.println("We're sorry to see you go, "+nameFormatter(room.getGuestName()));
+            System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.calculateCost()));
+        }
+        else{
+            System.out.println("We didn't find a reservation for the number provided.");
+        }
         hotelRooms.removeIf(room -> room.getReservationNumber() == numToCancel);
+    }
+    public String nameFormatter(String str){
+        String output = str.substring(0, 1).toUpperCase() + str.substring(1);
+        return output;
     }
 
 
