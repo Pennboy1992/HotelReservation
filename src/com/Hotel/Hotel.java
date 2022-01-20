@@ -42,7 +42,6 @@ public class Hotel {
         Scanner in5 = new Scanner(System.in);
 
         StringBuilder options = new StringBuilder();
-        System.out.println("Welcome to the Hacker's Suite Hotel!");
         System.out.println("May we have your name for this reservation today:  ");
         String guestName = in.nextLine();
 
@@ -53,6 +52,8 @@ public class Hotel {
         in2.nextLine();
         if (guestNumber > 7) {
             System.out.println("We apologize but we have no rooms that can fit this capacity.");
+            System.out.println("Please come back when you need less guests accommodated");
+            adminPortal();
 
         } else if (guestNumber > 5) {
             System.out.println("We recommend going with the Snowden Suite.");
@@ -71,6 +72,11 @@ public class Hotel {
         }
         System.out.println("What day will you be joining us?(Please enter date in yyyy-mm-dd format");
         String checkInDate = in4.nextLine();
+        if(checkInDate.length()<10){
+            Scanner in6 = new Scanner(System.in);
+            System.out.println("Please enter a proper date: yyyy-mm-dd ");
+            checkInDate= in6.nextLine();
+        }
 
         System.out.println("Now how many days will you be staying with us?");
         int numOfDays = in5.nextInt();
@@ -138,7 +144,7 @@ public class Hotel {
         if(rooms.size() > 0){
             Room room = rooms.get(0);
             System.out.println("We're sorry to see you go, "+nameFormatter(room.getGuestName()));
-            System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.calculateCost()));
+            System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.calculateCost())+"\n");
         }
         else{
             System.out.println("We didn't find a reservation for the number provided.");
@@ -149,7 +155,31 @@ public class Hotel {
         String output = str.substring(0, 1).toUpperCase() + str.substring(1);
         return output;
     }
+    public void adminPortal(){
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            System.out.println("Welcome to the Hacker Suite Admin Portal!");
+            System.out.println("1. Make a reservation\n2. Find a Reservation\n3. Cancel Reservation\n4.List Reservations\n5.Exit portal");
+            System.out.println("Please enter the corresponding number for the following options: ");
+            int choice = in.nextInt();
+            in.nextLine();
+            if (choice == 1) {
+               makeReservation();
+            }
+            else if (choice == 2) {
+                findReservation();
+            }
+            else if (choice == 3){
+                cancelReservation();
+            }
+            else if (choice == 4) {
+               listGuests();
+            }
+            else if (choice == 5) {
+                System.out.println("Thanks for choosing Hacker Suite! Have a great day!!");
+                break;
+            }
 
+    }
 
-
-}
+}}
