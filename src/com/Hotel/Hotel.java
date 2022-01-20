@@ -6,18 +6,12 @@ import com.Hotel.Room.Room;
 import com.Hotel.Room.SnowdenSuite;
 
 import javax.sound.midi.Soundbank;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
 public class Hotel {
-//    private Collection<RegularRoom> regularRooms = new ArrayList<>();
-//    private Collection<PresidentialSuite> presidentialSuites = new ArrayList<>();
-//    private Collection<SnowdenSuite> snowdenSuites = new ArrayList<>();
     private Collection<Room> hotelRooms = new ArrayList<>();
     private String hotelName;
     private String address;
@@ -45,7 +39,7 @@ public class Hotel {
         System.out.println("May we have your name for this reservation today:  ");
         String guestName = in.nextLine();
 
-        System.out.println("Thank you, " + guestName + "!");
+        System.out.println("Thank you, " + nameFormatter(guestName) + "!");
 
         System.out.println("How many guests can we expect for this reservation?:  ");
         int guestNumber = in2.nextInt() + 1;
@@ -70,7 +64,7 @@ public class Hotel {
             options.append("Presidential Suite, ");
             options.append("Snowden Suite");
         }
-        System.out.println("What day will you be joining us?(Please enter date in yyyy-mm-dd format");
+        System.out.println("What day will you be joining us?(Please enter date in yyyy-mm-dd format)");
         String checkInDate = in4.nextLine();
         if(checkInDate.length()<10){
             Scanner in6 = new Scanner(System.in);
@@ -152,8 +146,14 @@ public class Hotel {
         hotelRooms.removeIf(room -> room.getReservationNumber() == numToCancel);
     }
     public String nameFormatter(String str){
-        String output = str.substring(0, 1).toUpperCase() + str.substring(1);
-        return output;
+        String[] names = str.split("\\s");
+        String capitalizeName = "";
+        for(String w: names){
+            String first = w.substring(0, 1);
+            String last = w.substring(1);
+            capitalizeName+= first.toUpperCase() + last + " ";
+        }
+        return capitalizeName.trim();
     }
     public void adminPortal(){
         Scanner in = new Scanner(System.in);
