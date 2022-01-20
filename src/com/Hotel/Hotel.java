@@ -116,7 +116,7 @@ public class Hotel {
         }
     }
 
-    public void findReservation() {
+    public Room findReservation() {
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the reservation number for the reservation you would like to find : ");
         int reservationNumber = in.nextInt();
@@ -124,6 +124,11 @@ public class Hotel {
                 .filter(room -> room.getReservationNumber() == reservationNumber)
                 .collect(Collectors.toList());
         System.out.println(rooms.get(0) + "\n");
+        return rooms.get(0);
+    }
+    public void cancelReservation(){
+        int numToCancel = findReservation().getReservationNumber();
+        hotelRooms.removeIf(room -> room.getReservationNumber() == numToCancel);
     }
 
 
