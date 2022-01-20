@@ -1,19 +1,11 @@
 package com.Hotel.Room;
 
-import java.time.LocalDate;
-
 public class SnowdenSuite extends Room{
     private final double COST_PER_NIGHT = 375.25;
     private final int MAX_PEOPLE = 7;
     private final int FIRST_ROOM_NUMBER = 300;
-    private final int LAST_ROOM_NUMBER = 305;
+    private final int LAST_ROOM_NUMBER = 399;
     private final String ROOM_NAME = "Snowden Suite";
-    private String guestName;
-    private int guestNumber;
-    private int daysReserved;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
-    private int roomNumber;
 
 
     public SnowdenSuite(String guestName,int guestNumber,int daysReserved, String checkInDate) {
@@ -22,6 +14,7 @@ public class SnowdenSuite extends Room{
         setDaysReserved(daysReserved);
         setCheckInDate(checkInDate);
         setRoomNumber(FIRST_ROOM_NUMBER,LAST_ROOM_NUMBER);
+        setReservationNumber();
     }
 
 
@@ -35,11 +28,14 @@ public class SnowdenSuite extends Room{
     }
     @Override
     public String toString() {
-        return " Booking Guest: " + getGuestName() +
+        return "Booking Guest: " + getGuestName() +
+                ", Reservation Number: "+ getReservationNumber()+
                 ", Accompanying Guests: " + getGuestNumber() +
                 ", Check In Date: " + getCheckInDate() +
                 ", Check Out Date: " + getCheckOutDate() +
+                ", Room Class: "+ getRoomName() +
                 ", Room Number: " + getRoomNumber() +
                 ", Stay Cost: " + calculateCost();
     }
-}
+    }
+

@@ -1,7 +1,6 @@
 package com.Hotel.Room;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public abstract class Room {
     private String guestName;
@@ -10,8 +9,16 @@ public abstract class Room {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
     private int roomNumber;
+    private int reservationNumber;
 
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
 
+    public void setReservationNumber() {
+        int random_int = (int) Math.floor(Math.random() * (1000 - 1 + 1) + 1);
+        this.reservationNumber = random_int;
+    }
 
     public String getGuestName() {
         return guestName;
@@ -43,7 +50,6 @@ public abstract class Room {
     }
 
     public LocalDate getCheckInDate() {
-
         return checkInDate;
     }
 
@@ -70,6 +76,7 @@ public abstract class Room {
 
     public void printReceipt() {
         System.out.println("Thank you for making your reservation with us at the Hacker Suite Hotel, "+ getGuestName() + ".");
+        System.out.println("Your reservation number is: " + getReservationNumber() + ".");
         System.out.println("You will be staying in one of our " + getRoomName() + "s accompanied by " + (getGuestNumber() - 1) + " guest(s) in room " +
                 getRoomNumber() + ".");
         System.out.println("Your check in date will be " + getCheckInDate() + " and your checkout date will be " + getCheckOutDate() + ".");
