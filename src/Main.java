@@ -20,6 +20,9 @@ public class Main {
         else if (choice == 2) {
             hacker.findReservation();
         }
+        else if (choice == 3){
+            hacker.cancelReservation();
+        }
         else if (choice == 4) {
             hacker.listGuests();
         }

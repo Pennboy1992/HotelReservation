@@ -1,8 +1,7 @@
 package com.Hotel.Room;
 
 
-
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class SnowdenSuiteTest {
     private SnowdenSuite snowden = new SnowdenSuite("Roman",4,6,"2022-01-09");

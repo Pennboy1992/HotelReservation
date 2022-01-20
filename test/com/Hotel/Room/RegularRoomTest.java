@@ -2,7 +2,7 @@ package com.Hotel.Room;
 
 
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class RegularRoomTest {
     private RegularRoom regularGuy = new RegularRoom("Roman",3,6,"2022-01-09");
