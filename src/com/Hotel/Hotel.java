@@ -14,13 +14,11 @@ import static java.util.Comparator.comparing;
 public class Hotel {
     private Collection<Room> hotelRooms = new ArrayList<>();
     private String hotelName;
-    private String address;
-    public String getAddress() {
-        return address;
+
+    public Hotel(String hotelName){
+        setHotelName(hotelName);
     }
-    public void setAddress(String address) {
-        this.address = address;
-    }
+
     public String getHotelName() {
         return hotelName;
     }
@@ -104,8 +102,9 @@ public class Hotel {
                 SnowdenSuite room = new SnowdenSuite(guestName,guestNumber,numOfDays,checkInDate);
                 hotelRooms.add(room);
                 room.printReceipt();
-
             }
+            System.out.println("Thank you for coming to the " + getHotelName());
+
 
         }
         else{
@@ -153,7 +152,7 @@ public class Hotel {
         }
         hotelRooms.removeIf(room -> room.getReservationNumber() == numToCancel);
     }
-    public String nameFormatter(String str){
+    public static String nameFormatter(String str){
         String[] names = str.split("\\s");
         String capitalizeName = "";
         for(String w: names){
@@ -166,7 +165,7 @@ public class Hotel {
     public void adminPortal(){
         Scanner in = new Scanner(System.in);
         while (true) {
-            System.out.println("Welcome to the Hacker Suite Admin Portal!");
+            System.out.println("Welcome to the " + getHotelName() + " Admin Portal!");
             System.out.println("1. Make a reservation\n2. Find a Reservation\n3. Cancel Reservation\n4.List Reservations\n5.Exit portal");
             System.out.println("Please enter the corresponding number for the following options: ");
             int choice = in.nextInt();
