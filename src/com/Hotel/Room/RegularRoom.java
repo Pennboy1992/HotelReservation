@@ -1,5 +1,5 @@
 package com.Hotel.Room;
-
+import com.Hotel.Hotel;
 public class RegularRoom extends Room{
     private final double COST_PER_NIGHT = 195.67;
     private final int MAX_PEOPLE = 3;
@@ -26,7 +26,7 @@ public class RegularRoom extends Room{
 
     @Override
     public String toString() {
-        return "Booking Guest: " + getGuestName() +
+        return "Booking Guest: " + Hotel.nameFormatter(getGuestName()) +
                 ", Reservation Number: "+ getReservationNumber()+
                 ", Accompanying Guests: " + getGuestNumber() +
                 ", Check In Date: " + getCheckInDate() +
