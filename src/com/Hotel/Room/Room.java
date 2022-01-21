@@ -11,13 +11,22 @@ public abstract class Room {
     private LocalDate checkOutDate;
     private int roomNumber;
     private int reservationNumber;
+    private double totalCost;
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double costPerNight) {
+        this.totalCost = costPerNight * getDaysReserved();
+    }
 
     public int getReservationNumber() {
         return reservationNumber;
     }
     //importing the random class, get a number b/w 1-1000, not starting at zero
     public void setReservationNumber() {
-        int random_int = (int) Math.floor(Math.random() * (1000 - 1 + 1) + 1);
+        int random_int = (int) Math.floor(Math.random() * (9999 - 1 + 1) + 1);
         this.reservationNumber = random_int;
     }
 
@@ -81,11 +90,11 @@ public abstract class Room {
         System.out.println("You will be staying in one of our " + getRoomName() + "s accompanied by " + (getGuestNumber() - 1) + " guest(s) in room " +
                 getRoomNumber() + ".");
         System.out.println("Your check in date will be " + getCheckInDate() + " and your checkout date will be " + getCheckOutDate() + ".");
-        String total = String.format("%,.2f",calculateCost());
+        String total = String.format("%,.2f",getTotalCost());
         System.out.println("Your total for this reservation will be $" + total + " and will be due on: " + getCheckInDate() + ".\n");
     }
     public abstract String getRoomName();
-    public abstract double calculateCost();
+
 
     @Override
     public String toString() {
