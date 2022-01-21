@@ -14,10 +14,7 @@ public class RegularRoom extends Room{
         setCheckInDate(checkInDate);
         setRoomNumber(FIRST_ROOM_NUMBER,LAST_ROOM_NUMBER);
         setReservationNumber();
-    }
-
-    public double calculateCost() {
-        return COST_PER_NIGHT * getDaysReserved();
+        setTotalCost(COST_PER_NIGHT);
     }
 
     public String getRoomName() {
@@ -28,11 +25,11 @@ public class RegularRoom extends Room{
     public String toString() {
         return "Booking Guest: " + Hotel.nameFormatter(getGuestName()) +
                 ", Reservation Number: "+ getReservationNumber()+
-                ", Accompanying Guests: " + getGuestNumber() +
+                ", Accompanying Guests: " + (getGuestNumber() -1)  +
                 ", Check In Date: " + getCheckInDate() +
                 ", Check Out Date: " + getCheckOutDate() +
                 ", Room Class: "+ getRoomName() +
                 ", Room Number: " + getRoomNumber() +
-                ", Stay Cost: " + calculateCost();
+                ", Stay Cost: " + getTotalCost();
     }
 }

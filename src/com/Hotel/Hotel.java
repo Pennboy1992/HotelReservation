@@ -4,8 +4,6 @@ import com.Hotel.Room.PresidentialSuite;
 import com.Hotel.Room.RegularRoom;
 import com.Hotel.Room.Room;
 import com.Hotel.Room.SnowdenSuite;
-
-import javax.sound.midi.Soundbank;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -59,7 +57,7 @@ public class Hotel {
             options.append("Snowden Suite");
 
         } else if (guestNumber > 3) {
-            System.out.println("We recommend going with the Presidential Suite");
+            System.out.println("We recommend going with the Presidential Suite.");
             options.append("Presidential Suite, ");
             options.append("Snowden Suite");
 
@@ -86,9 +84,21 @@ public class Hotel {
         {
             System.out.println("You are eligible for:  " + options);
             System.out.println("Which room would you like?(Enter the corresponding number to the room you would like)");
-            System.out.println("1.Regular Room");
-            System.out.println("2.Presidential Suite");
-            System.out.println("3.Snowden Suite");
+            if (guestNumber <= 3) {
+                System.out.println("1.Regular Room");
+                System.out.println("2.Presidential Suite");
+                System.out.println("3.Snowden Suite");
+
+            }
+            else if (guestNumber > 3 && guestNumber <=5) {
+                System.out.println("2.Presidential Suite");
+                System.out.println("3.Snowden Suite");
+            }
+            else if (guestNumber > 5 &&guestNumber <= 7) {
+                System.out.println("3.Snowden Suite");
+            }
+
+
             System.out.println("Enter room option number: ");
             //ask user input for room type
             int roomOption = in3.nextInt();
@@ -152,7 +162,7 @@ public class Hotel {
         if(rooms.size() > 0){
             Room room = rooms.get(0);
             System.out.println("We're sorry to see you go, "+nameFormatter(room.getGuestName()));
-            System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.calculateCost())+"\n");
+            System.out.println("We've refunded your payment of $"+String.format("%,.2f",room.getTotalCost())+"\n");
         }
         else{
             System.out.println("We didn't find a reservation for the number provided. \n");
