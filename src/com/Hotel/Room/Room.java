@@ -15,7 +15,7 @@ public abstract class Room {
     public int getReservationNumber() {
         return reservationNumber;
     }
-
+    //importing the random class, get a number b/w 1-1000, not starting at zero
     public void setReservationNumber() {
         int random_int = (int) Math.floor(Math.random() * (1000 - 1 + 1) + 1);
         this.reservationNumber = random_int;
@@ -58,7 +58,7 @@ public abstract class Room {
         LocalDate inDate = LocalDate.parse(checkInDate);
         this.checkInDate = inDate;
     }
-
+    //checkout date = checkin date + days staying
     public LocalDate getCheckOutDate() {
         LocalDate inDate = getCheckInDate();
         LocalDate outDate = inDate.plusDays(daysReserved);
@@ -69,12 +69,12 @@ public abstract class Room {
     public int getRoomNumber() {
         return this.roomNumber;
     }
-
+    //random room number b/w min and max which is defined in child class
     public void setRoomNumber(int min, int max) {
         int random_int = (int) Math.floor(Math.random() * (max - min + 1) + min);
         this.roomNumber = random_int;
     }
-
+    //print all the info that guest inputted and make it a receipt
     public void printReceipt() {
         System.out.println("Thank you for making your reservation with us at the Hacker Suite Hotel, "+ Hotel.nameFormatter(getGuestName()) + ".");
         System.out.println("Your reservation number is: " + getReservationNumber() + ".");

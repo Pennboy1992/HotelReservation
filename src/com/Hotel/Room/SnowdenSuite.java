@@ -1,7 +1,7 @@
 package com.Hotel.Room;
 
 public class SnowdenSuite extends Room{
-    private final double COST_PER_NIGHT = 375.25;
+    private final double COST_PER_NIGHT = 375.25; //specific to children class
     private final int MAX_PEOPLE = 7;
     private final int FIRST_ROOM_NUMBER = 300;
     private final int LAST_ROOM_NUMBER = 399;
