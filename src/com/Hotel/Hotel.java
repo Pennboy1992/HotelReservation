@@ -9,8 +9,6 @@ import javax.sound.midi.Soundbank;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.Comparator.comparing;
-
 public class Hotel {
     private Collection<Room> hotelRooms = new ArrayList<>();
     private String hotelName;
@@ -177,7 +175,7 @@ public class Hotel {
         Scanner in = new Scanner(System.in);
         while (true) {
             System.out.println("Welcome to the " + getHotelName() + " Admin Portal!");
-            System.out.println("1. Make a reservation\n2. Find a Reservation\n3. Cancel Reservation\n4.List Reservations\n5.Exit portal");
+            System.out.println("1. Make a reservation\n2. Find a Reservation\n3. Cancel Reservation\n4. List Reservations\n5. Exit portal");
             System.out.println("Please enter the corresponding number for the following options: ");
             int choice = in.nextInt();
             in.nextLine();
