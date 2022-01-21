@@ -107,17 +107,17 @@ public class Hotel {
             if (roomOption == 1 && guestNumber <= 3) {
                 RegularRoom room = new RegularRoom(guestName,guestNumber,numOfDays,checkInDate);
                 hotelRooms.add(room);
-                room.printReceipt();
+                printReceipt(room);
             }
             else if (roomOption == 2 && guestNumber <= 5) {
                 PresidentialSuite room = new PresidentialSuite(guestName,guestNumber,numOfDays,checkInDate);
                 hotelRooms.add(room);
-                room.printReceipt();
+                printReceipt(room);
             }
             else if (roomOption == 3) {
                 SnowdenSuite room = new SnowdenSuite(guestName,guestNumber,numOfDays,checkInDate);
                 hotelRooms.add(room);
-                room.printReceipt();
+                printReceipt(room);
             }
             System.out.println("Thank you for coming to the " + getHotelName());
 
@@ -202,10 +202,24 @@ public class Hotel {
                listGuests();
             }
             else if (choice == 5) {
-                System.out.println("Thanks for choosing Hacker Suite! Have a great day!!");
+                System.out.println("Thanks for choosing " + getHotelName() + "! Have a great day!!");
                 break;
             }
 
     }
 
-}}
+}
+    //print all the info that guest inputted and make it a receipt
+    public void printReceipt(Room room) {
+        System.out.println("Thank you for making your reservation with us at the "+ getHotelName()+ ", "+ Hotel.nameFormatter(room.getGuestName()) + ".");
+        System.out.println("Your reservation number is: " + room.getReservationNumber() + ".");
+        System.out.println("You will be staying in one of our " + room.getRoomName() + "s accompanied by " + (room.getGuestNumber() - 1) + " guest(s) in room " +
+                room.getRoomNumber() + ".");
+        System.out.println("Your check in date will be " + room.getCheckInDate() + " and your checkout date will be " + room.getCheckOutDate() + ".");
+        String total = String.format("%,.2f",room.getTotalCost());
+        System.out.println("Your total for this reservation will be $" + total + " and will be due on: " + room.getCheckInDate() + ".\n");
+    }
+
+
+
+}
